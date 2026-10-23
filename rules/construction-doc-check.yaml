@@ -1,0 +1,226 @@
+# 施工资料完整性 · 规则库
+#
+# 本包按**文件名**核对资料是否齐全，不解析文件内容，也不判断资料填写是否正确。
+# 这是 L0 层：零录入，只看目录里有没有这一类文件。
+#
+# 为什么只按文件名：一份真实项目的资料有上千份，让资料员先整理成表格再核对，
+# 他缺的是时间不是清单（见规格 §5.4）。目录和文件名是他已经有的东西。
+#
+# ⚠️ 本包的边界（写进 README，也写进报告）：
+#   1) 「有这一类文件」不等于「这一份合格」——内容正确性由 L1/L2 负责；
+#   2) 「没有这一类文件」只说明归档里没有，不说明现场没做；
+#   3) 应有份数不从目录推断：一个分项几十份检验批，本包只判断「有没有」，
+#      不判断「够不够」。份数判断是 L1 的事，规格里列为最大技术难点。
+
+plugin: dsh-construction-doc-check
+version: "2026.1"
+as_of: "2026-10-23"
+
+# 目录扫描参数
+scan:
+  # 递归深度上限；更深的目录通常不是资料归档目录
+  maxDepth: 6
+  # 这些目录名整棵跳过（工作区、临时、回收站）
+  skipDirs: ['.git', 'node_modules', '__MACOSX', '临时', '废稿', '旧版备份']
+  # 视为「空文件」的字节上限
+  emptyFileBytes: 0
+
+rules:
+  - id: CD-001
+    title: 竣工验收记录应齐全（四张表）
+    category: 竣工验收
+    severity: error
+    patterns:
+      - 竣工验收记录
+      - 单位工程质量竣工验收记录
+    basis:
+      document: 《建筑工程施工质量验收统一标准》
+      number: GB 50300-2013
+      clause: 5.0.5(4)
+      excerpt: 单位工程质量竣工验收记录应按表 H.0.1-1 至 H.0.1-4 填写，包括单位工程质量竣工验收记录、质量控制资料核查记录、安全和功能检验资料核查及主要功能抽查记录、观感质量检查记录。
+      kind: direct
+      source: https://gf.cabr-fire.com/m/article-10589.htm
+
+  - id: CD-002
+    title: 应有工程竣工报告
+    category: 竣工验收
+    severity: error
+    patterns:
+      - 竣工报告
+    basis:
+      document: 《建设工程质量管理条例》
+      number: 国务院令第279号
+      clause: 第十六条
+      excerpt: 建设单位收到建设工程竣工报告后，应当组织设计、施工、工程监理等有关单位进行竣工验收。
+      kind: direct
+      source: https://www.gov.cn/gongbao/content/2000/content_60323.htm
+
+  - id: CD-003
+    title: 应有工程质量保修书
+    category: 竣工验收
+    severity: error
+    patterns:
+      - 保修书
+    basis:
+      document: 《建设工程质量管理条例》
+      number: 国务院令第279号
+      clause: 第十六条
+      excerpt: 建设工程经验收合格的，方可交付使用。建设单位应当向用户出具质量保修书。
+      kind: direct
+      source: https://www.gov.cn/gongbao/content/2000/content_60323.htm
+
+  - id: CD-010
+    title: 应有检验批质量验收记录
+    category: 施工记录
+    severity: error
+    patterns:
+      - 检验批
+    basis:
+      document: 《建筑工程施工质量验收统一标准》
+      number: GB 50300-2013
+      clause: 5.0.5
+      excerpt: 检验批质量验收记录应由专业监理工程师组织项目专业质量检查员等进行验收。
+      kind: direct
+      source: https://gf.cabr-fire.com/m/article-10589.htm
+
+  - id: CD-011
+    title: 应有隐蔽工程验收记录
+    category: 施工记录
+    severity: error
+    patterns:
+      - 隐蔽
+    basis:
+      document: 《建筑工程施工质量验收统一标准》
+      number: GB 50300-2013
+      clause: 3.0.5
+      excerpt: 隐蔽工程在隐蔽前应由施工单位通知有关单位进行验收，并形成验收文件。
+      kind: direct
+      source: https://gf.cabr-fire.com/m/article-10589.htm
+
+  - id: CD-012
+    title: 应有分部工程质量验收记录
+    category: 施工记录
+    severity: error
+    patterns:
+      - 分部.*验收
+      - 分部工程
+    basis:
+      document: 《建筑工程施工质量验收统一标准》
+      number: GB 50300-2013
+      clause: 6.0.3
+      excerpt: 勘察、设计单位项目负责人和施工单位技术、质量部门负责人应参加地基与基础分部工程的验收。
+      kind: direct
+      source: https://gf.cabr-fire.com/m/article-10589.htm
+
+  - id: CD-013
+    title: 应有材料进场复试报告
+    category: 施工试验
+    severity: warn
+    patterns:
+      - 复试
+      - 复验
+    basis:
+      document: 《建设工程质量管理条例》
+      number: 国务院令第279号
+      clause: 第二十九条
+      excerpt: 施工单位必须按照工程设计要求、施工技术标准和合同约定，对建筑材料、建筑构配件、设备和商品混凝土进行检验，未经检验或者检验不合格的，不得使用。
+      kind: direct
+      source: https://www.gov.cn/gongbao/content/2000/content_60323.htm
+
+  - id: CD-014
+    title: 应有监理日志
+    category: 监理资料
+    severity: warn
+    patterns:
+      - 监理日志
+    basis:
+      document: 房屋建筑工程施工旁站监理管理办法（试行）
+      number: 建市〔2002〕189号
+      clause: 第六条
+      excerpt: 监理日志是监理工作的重要记录，监理工程师应当逐日填写。
+      kind: derived-from-principle
+      source: https://www.gov.cn/gongbao/content/2002/content_61386.htm
+
+  - id: CD-015
+    title: 应有施工日志
+    category: 施工记录
+    severity: info
+    patterns:
+      - 施工日志
+    basis:
+      document: 本机构资料归档清单
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 施工日志的归档要求由本机构资料管理办法规定，不属于国家标准条款；本规则的阈值来自本机构配置。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+
+  - id: CD-020
+    title: 危大工程应有专项施工方案
+    category: 危大工程
+    severity: error
+    patterns:
+      - 专项施工方案
+    basis:
+      document: 《危险性较大的分部分项工程安全管理规定》
+      number: 住房城乡建设部令第37号
+      clause: 第十条
+      excerpt: 施工单位应当在施工前编制专项施工方案。
+      kind: direct
+      source: https://www.mohurd.gov.cn/gongkai/zhengce/gzk/art/2022/art_17337_763794.html
+
+  - id: CD-021
+    title: 危大工程应有验收记录
+    category: 危大工程
+    severity: error
+    patterns:
+      - 危大.*验收
+      - 专项.*验收
+    basis:
+      document: 《危险性较大的分部分项工程安全管理规定》
+      number: 住房城乡建设部令第37号
+      clause: 第十九条
+      excerpt: 施工单位应当组织有关人员进行验收，验收合格的方可进入下一道工序。
+      kind: direct
+      source: https://www.mohurd.gov.cn/gongkai/zhengce/gzk/art/2022/art_17337_763794.html
+
+  - id: CD-030
+    title: 应有应急预案
+    category: 安全管理
+    severity: warn
+    patterns:
+      - 应急预案
+    basis:
+      document: 本机构安全资料归档清单
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 应急预案的归档编号与保存期限由本机构安全管理办法规定，不属于国家标准条款；本规则的阈值来自本机构配置。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+
+  - id: CD-040
+    title: 不应残留多个修改版本
+    category: 版本
+    severity: warn
+    patterns: []
+    basis:
+      document: 本机构资料管理办法
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 同一份资料应只保留现行版本；历史版本应移入历史目录，由本机构资料管理办法规定。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+    note: 同名的「(1)」「副本」「最终」「最新」「V2」等标记会在同目录出现多份时提示。
+
+  - id: CD-041
+    title: 不应存在零字节文件
+    category: 版本
+    severity: warn
+    patterns: []
+    basis:
+      document: 本机构资料管理办法
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 归档文件应为可打开的有效文件；零字节文件通常由复制中断或占位生成，由本机构资料管理办法规定。
+      kind: institutional-configuration
+      source: https://www.gov.cn/

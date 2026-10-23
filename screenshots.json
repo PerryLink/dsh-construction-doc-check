@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-construction-doc-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-construction-doc-check terminal output",
+    "caption": "Real dsh-construction-doc-check checker output."
+  },
+  {
+    "path": "docs/assets/dsh-construction-doc-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-construction-doc-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
