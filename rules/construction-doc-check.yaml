@@ -187,7 +187,7 @@ rules:
   - id: CD-030
     title: 应有应急预案
     category: 安全管理
-    severity: warn
+    severity: info
     patterns:
       - 应急预案
     basis:
@@ -201,7 +201,7 @@ rules:
   - id: CD-040
     title: 不应残留多个修改版本
     category: 版本
-    severity: warn
+    severity: info
     patterns: []
     basis:
       document: 本机构资料管理办法
@@ -215,7 +215,7 @@ rules:
   - id: CD-041
     title: 不应存在零字节文件
     category: 版本
-    severity: warn
+    severity: info
     patterns: []
     basis:
       document: 本机构资料管理办法
