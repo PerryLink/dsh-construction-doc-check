@@ -1,6 +1,6 @@
 {
   "name": "dsh-construction-doc-check",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "扫描施工项目资料目录，报告缺哪些规定资料、哪些像是过期版本、哪些文件是空的。",
   "type": "module",
   "main": "lib/index.mjs",
