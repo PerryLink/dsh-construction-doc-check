@@ -3,12 +3,12 @@
     "path": "docs/assets/dsh-construction-doc-check-hero.png",
     "kind": "hero",
     "alt": "dsh-construction-doc-check terminal output",
-    "caption": "Real dsh-construction-doc-check checker output."
+    "caption": "Real `pnpm test` run: 13/13 tests passed (2 test files)."
   },
   {
     "path": "docs/assets/dsh-construction-doc-check-demo.gif",
     "kind": "demo",
     "alt": "Animated dsh-construction-doc-check terminal session",
-    "caption": "The same run, assembled line by line."
+    "caption": "The same `pnpm test` run — 13/13 tests passed — assembled line by line."
   }
 ]
