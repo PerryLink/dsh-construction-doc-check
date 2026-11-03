@@ -26,7 +26,10 @@
     "rules",
     "CHANGELOG.md",
     "SECURITY.md",
-    "docs/assets/*"
+    "docs/assets/*",
+    "samples",
+    "TROUBLESHOOTING.md",
+    "screenshots.json"
   ],
   "scripts": {
     "build": "tsdown",
@@ -43,6 +46,18 @@
     "manifestVersion": 1,
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "demo": {
+      "sample": "samples/quickstart/input/archive",
+      "prompt": "用自带样例扫描一遍施工资料目录，告诉我哪些类别齐全、哪些缺件。",
+      "expect": "samples/quickstart/expected/result.json",
+      "screenshot": "docs/assets/quickstart.png",
+      "reads": [
+        "施工资料归档目录"
+      ],
+      "writes": [],
+      "network": false,
+      "external": []
     }
   },
   "keywords": [
