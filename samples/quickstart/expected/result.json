@@ -1,0 +1,14 @@
+{
+  "tool": "construction_doc_check",
+  "packVersion": "2026.1",
+  "summary": {
+    "present": 12,
+    "missing": 0,
+    "errors": 0,
+    "warnings": 0,
+    "infos": 0,
+    "dirsScanned": 7,
+    "filesScanned": 12
+  },
+  "missingCategories": []
+}
