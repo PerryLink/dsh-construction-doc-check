@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-dark.svg">
-  <img src="docs/assets/dsh-construction-doc-check-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-construction-doc-check: diretório do arquivo dir → ferramenta construction_doc_check → pacote de regras rules/*.yaml (CD-001..CD-041) → lista de documentos em falta + outros achados + avisos → revisor; a configuração entra por rulePackFile / timeoutMs / scan.maxDepth">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-construction-doc-check-hero-en-light.webp" width="100%" alt="dsh-construction-doc-check: à esquerda o nome do plugin e as suas frases de valor; à direita o recibo result.json — 12 present, 0 missing, 0 error em 7 diretórios e 12 ficheiros — junto à composição do pacote de regras (14 regras · 7 categorias) e às afirmações que a ferramenta não faz (não abre documentos, não julga quantidades, não emite veredicto)">
 </picture>
 
 # dsh-construction-doc-check
@@ -51,6 +51,11 @@ Responde a quatro perguntas:
 - Que requisito falta e que cláusula o exige?
 
 **Limite:** três afirmações que esta ferramenta não faz. Não abre documentos, pelo que «presente» não é «correto» — o conteúdo é uma camada posterior (L1/L2). **Não** julga **quantas** cópias deve haver de cada tipo: um item pode precisar de dezenas de registos de inspeção por lote, e isto verifica existência, não suficiência. E um ficheiro ausente significa que o arquivo não pode provar que foi feito, não que não tenha sido feito.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-construction-doc-check: uma árvore de arquivo documental de obra (7 diretórios, 12 ficheiros) cujas pastas de categoria trazem os identificadores de regra que corresponderam a um caminho relativo (CD-001..CD-030, doze regras); à direita, as duas regras de conjunto que só podem ler todo o files[] — CD-040 versões residuais e CD-041 ficheiros de zero bytes; o recibo de uma execução e os limites de varrimento (maxDepth 6, skipDirs, emptyFileBytes 0) fecham a figura">
+</picture>
 
 ## Instalação em três passos
 
@@ -289,7 +294,7 @@ Estrutura do diretório:
 | `samples/quickstart/` | amostra incluída, saída esperada e script de execução |
 | `tests/` | vitest: um fixture emparelhado por regra |
 
-As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) e podem ser executadas de novo; o diagrama de fluxo, o hero e a demo de uma só versão ficam em `docs/assets/` para ligações externas, e os README referenciam apenas o novo par claro/escuro.
+As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) — o hero com Pillow (zh/en × claro/escuro, quatro WebP) e a figura de estrutura como SVG escrito à mão (flow-v5, claro/escuro) — e podem ser executadas de novo; o diagrama de fluxo, o hero e a demo de uma só versão ficam em `docs/assets/` para ligações externas, e os README referenciam apenas o novo hero e o par flow-v5.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `construction`, `archive`, `documents`, `completion`
 

@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-dark.svg">
-  <img src="docs/assets/dsh-construction-doc-check-flow-light.svg" width="100%" alt="dsh-construction-doc-check डेटा प्रवाह: दस्तावेज़ संग्रह निर्देशिका dir → construction_doc_check उपकरण → rules/*.yaml नियम-पैक (CD-001..CD-041) → अनुपस्थित दस्तावेज़ सूची + अन्य निष्कर्ष + चेतावनियाँ → समीक्षक; कॉन्फ़िग rulePackFile / timeoutMs / scan.maxDepth से आता है">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-construction-doc-check-hero-en-light.webp" width="100%" alt="dsh-construction-doc-check: बाईं ओर प्लगइन का नाम और उसकी मूल्य-पंक्तियाँ; दाईं ओर result.json रसीद — 7 निर्देशिकाओं और 12 फ़ाइलों पर 12 present, 0 missing, 0 error — साथ में नियम-पैक की संरचना (14 नियम · 7 श्रेणियाँ) और वे बातें जो उपकरण नहीं कहता (दस्तावेज़ नहीं खोलता, संख्या नहीं आँकता, निर्णय नहीं देता)">
 </picture>
 
 # dsh-construction-doc-check
@@ -51,6 +51,11 @@ dsh plugin --profile <name> add dsh-construction-doc-check
 - कौन-सी आवश्यकता छूटी और कौन-सा अनुच्छेद उसे अनिवार्य करता है?
 
 **सीमा:** तीन बातें यह उपकरण नहीं कहता। यह दस्तावेज़ नहीं खोलता, इसलिए «मौजूद» का अर्थ «सही» नहीं — सामग्री की जाँच बाद की परत (L1/L2) है। यह **कितनी** प्रतियाँ होनी चाहिए यह नहीं आँकता: एक उप-मद के लिए दर्जनों निरीक्षण-बैच रिकॉर्ड चाहिए हो सकते हैं, और यह अस्तित्व जाँचता है, पर्याप्तता नहीं। और फ़ाइल का अनुपस्थित होना बताता है कि संग्रह प्रमाण नहीं दे सकता, यह नहीं कि काम हुआ ही नहीं।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="dsh-construction-doc-check की संरचना: निर्माण दस्तावेज़ संग्रह का एक वृक्ष (7 निर्देशिकाएँ, 12 फ़ाइलें) जिनकी श्रेणी फ़ोल्डरों पर उन नियमों की आईडी हैं जो सापेक्ष पथ से मेल खाए (CD-001..CD-030, बारह नियम); दाईं ओर वे दो समुच्चय-स्तरीय नियम जो केवल पूरा files[] पढ़ते हैं — CD-040 पुराने संस्करण और CD-041 शून्य-बाइट फ़ाइलें; एक रन की रसीद और स्कैन सीमाएँ (maxDepth 6, skipDirs, emptyFileBytes 0) चित्र को पूरा करती हैं">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -289,7 +294,7 @@ node samples/quickstart/run.mjs --check
 | `samples/quickstart/` | साथ आया नमूना, अपेक्षित आउटपुट और रन स्क्रिप्ट |
 | `tests/` | vitest: हर नियम के लिए जोड़ीदार फ़िक्सचर |
 
-README की तस्वीरें [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप से बनती हैं (Python + Pillow) और दोबारा चलाई जा सकती हैं; पुराना एक-संस्करण फ़्लो डायग्राम, hero और डेमो `docs/assets/` में बाहरी लिंक के लिए रहते हैं, और README केवल नए लाइट/डार्क जोड़े का संदर्भ देते हैं।
+README की तस्वीरें [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से प्रोग्रामेटिक रूप से बनती हैं — hero बैनर Pillow से (zh/en × लाइट/डार्क, चार WebP) और संरचना चित्र हाथ से लिखे SVG से (flow-v5, लाइट/डार्क) — और दोबारा चलाई जा सकती हैं; पुराना एक-संस्करण फ़्लो डायग्राम, hero और डेमो `docs/assets/` में बाहरी लिंक के लिए रहते हैं, और README केवल नए hero और flow-v5 जोड़े का संदर्भ देते हैं।
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `construction`, `archive`, `documents`, `completion`
 

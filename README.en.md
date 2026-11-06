@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-dark.svg">
-  <img src="docs/assets/dsh-construction-doc-check-flow-light.svg" width="100%" alt="dsh-construction-doc-check data flow: archive directory dir → construction_doc_check tool → rules/*.yaml rule pack (CD-001..CD-041) → missing-document list + other findings + warnings → reviewer; config flows in via rulePackFile / timeoutMs / scan.maxDepth">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-construction-doc-check-hero-en-light.webp" width="100%" alt="dsh-construction-doc-check: the plugin name and its value lines on the left; on the right the result.json receipt — 12 present, 0 missing, 0 errors over 7 directories and 12 files — beside the rule pack composition (14 rules · 7 categories) and the claims the tool does not make (no document opened, counts not judged, no verdict)">
 </picture>
 
 # dsh-construction-doc-check
@@ -51,6 +51,11 @@ It answers four questions:
 - Which named requirement is missing, and which clause requires it?
 
 **Boundary:** three claims this tool does not make. It does not open a document, so "present" is not "correct" — content is a later layer (L1/L2). It does **not** judge **how many** copies of a kind should exist: one subitem can need dozens of inspection-batch records, and this checks existence, not sufficiency. And a missing file means the archive cannot prove the work was done, which is not the same as the work not being done.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="dsh-construction-doc-check structure: one construction document archive tree (7 directories, 12 files) whose category folders carry the rule ids that matched a relative path there (CD-001..CD-030, twelve rules); on the right the two set-level rules that can only read the whole files[] — CD-040 version leftovers and CD-041 zero-byte files; the run receipt and the scan bounds (maxDepth 6, skipDirs, emptyFileBytes 0) close the figure">
+</picture>
 
 ## Three-step setup
 
@@ -289,7 +294,7 @@ Directory layout:
 | `samples/quickstart/` | bundled sample, expected output, run script |
 | `tests/` | vitest: a paired fixture per rule |
 
-The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) and are safe to re-run; the older single-skin flow diagram, hero, and demo assets stay in `docs/assets/` for external deep links, and the READMEs reference only the new light/dark pair.
+The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) — the hero banner with Pillow (zh/en × light/dark, four WebP files) and the structure figure as hand-written SVG (flow-v5, light/dark) — and are safe to re-run; the older single-skin flow diagram, hero, and demo assets stay in `docs/assets/` for external deep links, and the READMEs reference only the new hero and flow-v5 pair.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `construction`, `archive`, `documents`, `completion`
 

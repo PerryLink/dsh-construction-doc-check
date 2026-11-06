@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-dark.svg">
-  <img src="docs/assets/dsh-construction-doc-check-flow-light.svg" width="100%" alt="dsh-construction-doc-check 数据流：资料目录 dir → construction_doc_check 工具 → rules/*.yaml 规则库（CD-001..CD-041）→ 缺件清单 + 其他发现 + 提示 → 审核人；配置经 rulePackFile / timeoutMs / scan.maxDepth 注入">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-construction-doc-check-hero-zh-light.webp" width="100%" alt="dsh-construction-doc-check 配图：左列是插件名、两行价值句与「只按相对路径与文件名核对」的说明；右侧是一份 result.json 回执——12 present、0 missing、0 error，7 个目录、12 个文件——旁边是规则库构成（14 条 · 7 类）与工具的边界（不打开文件、不判份数、不下结论、不认定责任）">
 </picture>
 
 # dsh-construction-doc-check
@@ -51,6 +51,11 @@ dsh plugin --profile <name> add dsh-construction-doc-check
 - 某条要求缺的是哪一类文件、依据哪一条？
 
 **边界：** 三句本工具不说的话。它不打开文件，所以「有」不等于「合格」——内容由 L1/L2 层级负责。它**不判断份数**：一个分项可能要几十份检验批，本工具只判断有没有，不判断够不够。缺件说明归档无法证明做过，不等于现场没做。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-construction-doc-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="dsh-construction-doc-check 结构图：一棵施工资料归档目录树（7 个目录、12 个文件），每个分类文件夹上标出按相对路径命中的规则号（CD-001..CD-030 共 12 条）；右侧是只能对整批 files[] 判断的两条集合级规则 CD-040 版本残留与 CD-041 零字节文件；底部是一次运行的回执与扫描边界（maxDepth 6 / skipDirs / emptyFileBytes 0）">
+</picture>
 
 ## 三步上手
 
@@ -289,7 +294,7 @@ node samples/quickstart/run.mjs --check
 | `samples/quickstart/` | 自带样例、期望输出与试跑脚本 |
 | `tests/` | vitest：每条规则配套夹具 |
 
-README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow），可重复执行；旧的单版流程图、hero 与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的深浅双版。
+README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成——hero 横幅用 Pillow（zh/en × 深浅共四张），结构图用手写 SVG（flow-v5 深浅两版）——可重复执行；旧的单版流程图、hero 与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的 hero 与 flow-v5。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `construction`, `archive`, `documents`, `completion`
 
