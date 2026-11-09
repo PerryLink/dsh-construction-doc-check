@@ -15,7 +15,7 @@
  *    archive cannot prove it, which is a different sentence.
  */
 
-import { readdir, stat } from 'node:fs/promises'
+import { open, readdir, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 import { parseYaml } from './shared/yaml.ts'
 
@@ -58,6 +58,8 @@ export interface ScannedFile {
   /** File name without directories. */
   name: string
   bytes: number
+  /** First bytes of an Office/PDF file, used only for a container check. */
+  header?: string
 }
 
 /** One finding. */
@@ -182,7 +184,19 @@ export async function scan(root: string, options: ScanOptions): Promise<{ files:
       if (!entry.isFile()) continue
       try {
         const info = await stat(join(directory, entry.name))
-        files.push({ path: relative, name: entry.name, bytes: info.size })
+        const file = { path: relative, name: entry.name, bytes: info.size } as ScannedFile
+        if (/\.(docx|xlsx|xlsm|pdf)$/iu.test(entry.name)) {
+          try {
+            const handle = await open(join(directory, entry.name), 'r')
+            const buffer = Buffer.alloc(8)
+            const { bytesRead } = await handle.read(buffer, 0, buffer.length, 0)
+            await handle.close()
+            file.header = buffer.subarray(0, bytesRead).toString('latin1')
+          } catch {
+            warnings.push(`无法读取文件头：${relative}`)
+          }
+        }
+        files.push(file)
       } catch {
         warnings.push(`无法读取文件大小：${relative}`)
         files.push({ path: relative, name: entry.name, bytes: -1 })
@@ -263,6 +277,26 @@ export function check(pack: ConstructionPack, root: string, files: ScannedFile[]
           evidence: [file.path],
           basis: basisOf(rule),
         })
+      }
+      continue
+    }
+
+    if (rule.id === 'CD-042') {
+      for (const file of files) {
+        if (file.header === undefined) continue
+        const extension = file.name.split('.').pop()?.toLowerCase() ?? ''
+        const expected = extension === 'pdf' ? file.header.startsWith('%PDF-') : file.header.startsWith('PK')
+        if (!expected) {
+          findings.push({
+            ruleId: rule.id,
+            severity: rule.severity,
+            category: rule.category,
+            title: rule.title,
+            message: `「${file.path}」的扩展名是 .${extension}，但文件头不是 ${extension === 'pdf' ? 'PDF' : 'ZIP/Office'}，可能已损坏或被改名`,
+            evidence: [file.path],
+            basis: basisOf(rule),
+          })
+        }
       }
       continue
     }

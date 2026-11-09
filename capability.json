@@ -9,10 +9,17 @@
     "json"
   ],
   "rules": {
-    "total": 14
+    "total": 15
   },
   "limits": [
-    "L0 文件名/元数据核对，不打开 docx/xlsx 内容",
-    "无真实资料目录 P/R"
-  ]
+    "仍以目录/文件名为主要依据；CD-042 只读文件头，不解析正文",
+    "不判断资料内容是否真实、完整或合规",
+    "无真实工程资料目录语料，P/R 未测"
+  ],
+  "benchmark": {
+    "kind": "synthetic-tree",
+    "corpus_size": 1,
+    "note": "one throwaway directory tree with a bad .docx header and a valid .xlsx header; not a real archive and not a P/R",
+    "measured_at": "2026-11-09"
+  }
 }

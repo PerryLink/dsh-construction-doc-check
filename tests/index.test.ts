@@ -134,3 +134,19 @@ describe('report', () => {
     expect(markdown.indexOf('本报告能说明什么')).toBeLessThan(markdown.indexOf('缺件清单'))
   })
 })
+
+describe('file container integrity (CD-042)', () => {
+  it('flags a .docx whose bytes are not a ZIP and leaves a real ZIP header alone', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'construction-header-'))
+    try {
+      await writeFile(join(dir, 'bad.docx'), 'not a zip')
+      await writeFile(join(dir, 'good.xlsx'), Buffer.concat([Buffer.from('PK\u0003\u0004'), Buffer.from('rest')]))
+      const { files, dirs } = await scan(dir, pack.scan)
+      const result = check(pack, dir, files, dirs)
+      const hits = result.findings.filter((item) => item.ruleId === 'CD-042')
+      expect(hits.map((item) => item.evidence[0])).toEqual(['bad.docx'])
+    } finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+})
