@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "tier": "L2-document",
+  "input_formats": [
+    "directory"
+  ],
+  "outputs": [
+    "markdown",
+    "json"
+  ],
+  "rules": {
+    "total": 14
+  },
+  "limits": [
+    "L0 文件名/元数据核对，不打开 docx/xlsx 内容",
+    "无真实资料目录 P/R"
+  ]
+}
