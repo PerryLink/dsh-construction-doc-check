@@ -1,6 +1,15 @@
 # dsh-construction-doc-check — 施工资料目录完整性核对
 
-[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+### 快速试跑（1 分钟）
+
+```bash
+node samples/quickstart/run.mjs --check
+```
+
+样例在 `samples/quickstart/input/`，期望输出在 `samples/quickstart/expected/result.json`；截图见 `docs/assets/quickstart.png`。
+
+
+[English](README.md) · [简体中文](README-zh.md)
 
 <!-- topblock:v1 -->
 > **这是什么**　扫一个施工项目资料文件夹的目录结构，报告缺哪些规定资料、哪些像过期版本、哪些文件是空的。

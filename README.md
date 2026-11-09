@@ -1,6 +1,6 @@
 # dsh-construction-doc-check — Construction document check
 
-[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+[English](README.md) · [简体中文](README-zh.md)
 
 <!-- topblock:v1 -->
 > **What it is** — Scans a construction document folder and reports missing required documents, likely old versions and empty files.
