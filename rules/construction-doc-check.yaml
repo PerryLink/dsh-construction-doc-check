@@ -237,3 +237,19 @@ rules:
       excerpt: 归档文件应能按扩展名打开；扩展名与文件头不一致通常说明文件损坏或被改名，由本机构资料管理办法规定。
       kind: institutional-configuration
       source: https://www.gov.cn/
+
+  - id: CD-043
+    title: PDF 应有可提取的文本层
+    category: 版本
+    severity: info
+    patterns: []
+    content:
+      minTextChars: 200
+    basis:
+      document: 本机构资料管理办法
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 归档 PDF 应保留可检索的文本层；扫描件应同时提供 OCR 文本，由本机构资料管理办法规定。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+    note: 仅在 content=true 时执行；统计可提取的文本字符数。扫描件没有文本层是正常归档形态，但无法用本插件核对正文，需 OCR 或人工复核。

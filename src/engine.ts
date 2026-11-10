@@ -15,7 +15,8 @@
  *    archive cannot prove it, which is a different sentence.
  */
 
-import { open, readdir, stat } from 'node:fs/promises'
+import { open, readdir, readFile, stat } from 'node:fs/promises'
+import { extractPdfText } from './content.ts'
 import { join } from 'node:path'
 import { parseYaml } from './shared/yaml.ts'
 
@@ -27,6 +28,7 @@ export interface Requirement {
   severity: 'error' | 'warn' | 'info'
   patterns: string[]
   note: string
+  content?: { minTextChars: number }
   basis: {
     document: string
     number: string
@@ -42,6 +44,8 @@ export interface ScanOptions {
   maxDepth: number
   skipDirs: string[]
   emptyFileBytes: number
+  /** Read PDF text layers while scanning. */
+  content?: boolean
 }
 
 /** A loaded pack. */
@@ -60,6 +64,14 @@ export interface ScannedFile {
   bytes: number
   /** First bytes of an Office/PDF file, used only for a container check. */
   header?: string
+  /** Whether a text extraction was attempted. */
+  contentScanned?: boolean
+  /** Extracted text length, when content scanning is enabled. */
+  textChars?: number
+  /** Extracted text (trimmed to a preview), when content scanning is enabled. */
+  textPreview?: string
+  /** Why text extraction failed, when content scanning is enabled. */
+  textError?: string
 }
 
 /** One finding. */
@@ -108,6 +120,7 @@ export function loadPack(yaml: string): ConstructionPack {
     maxDepth: typeof scanRaw.maxDepth === 'number' ? scanRaw.maxDepth : 6,
     skipDirs: Array.isArray(scanRaw.skipDirs) ? scanRaw.skipDirs.map(String) : [],
     emptyFileBytes: typeof scanRaw.emptyFileBytes === 'number' ? scanRaw.emptyFileBytes : 0,
+    content: scanRaw.content === true,
   }
   const rawRules = Array.isArray(parsed.rules) ? parsed.rules : []
   if (rawRules.length === 0) throw new ConstructionError('规则库没有任何规则')
@@ -122,6 +135,10 @@ export function loadPack(yaml: string): ConstructionPack {
     }
     const level = severity as 'error' | 'warn' | 'info'
     const patterns = Array.isArray(entry.patterns) ? entry.patterns.map(String) : []
+    const contentRaw = entry.content
+    const content = contentRaw !== null && typeof contentRaw === 'object' && !Array.isArray(contentRaw) && typeof (contentRaw as Record<string, unknown>).minTextChars === 'number'
+      ? { minTextChars: (contentRaw as Record<string, unknown>).minTextChars as number }
+      : undefined
     for (const pattern of patterns) {
       try {
         new RegExp(pattern, 'u')
@@ -136,6 +153,7 @@ export function loadPack(yaml: string): ConstructionPack {
       severity: level,
       patterns,
       note: String(entry.note ?? ''),
+      content,
       basis: {
         document: String(basisRaw.document ?? ''),
         number: String(basisRaw.number ?? ''),
@@ -185,6 +203,18 @@ export async function scan(root: string, options: ScanOptions): Promise<{ files:
       try {
         const info = await stat(join(directory, entry.name))
         const file = { path: relative, name: entry.name, bytes: info.size } as ScannedFile
+        if (/\.pdf$/iu.test(entry.name) && options.content === true) {
+          file.contentScanned = true
+          try {
+            const buffer = await readFile(join(directory, entry.name))
+            const text = extractPdfText(buffer)
+            file.textChars = text.length
+            file.textPreview = text.slice(0, 200)
+          } catch (error) {
+            file.textError = error instanceof Error ? error.message : String(error)
+            warnings.push(`无法抽取 PDF 文本：${relative}`)
+          }
+        }
         if (/\.(docx|xlsx|xlsm|pdf)$/iu.test(entry.name)) {
           try {
             const handle = await open(join(directory, entry.name), 'r')
@@ -297,6 +327,27 @@ export function check(pack: ConstructionPack, root: string, files: ScannedFile[]
             basis: basisOf(rule),
           })
         }
+      }
+      continue
+    }
+
+    if (rule.id === 'CD-043') {
+      const minimum = rule.content?.minTextChars ?? 200
+      for (const file of files) {
+        if (!/\.pdf$/iu.test(file.name)) continue
+        if (file.contentScanned !== true) continue
+        if (file.textChars !== undefined && file.textChars >= minimum) continue
+        findings.push({
+          ruleId: rule.id,
+          severity: rule.severity,
+          category: rule.category,
+          title: rule.title,
+          message: file.textChars === undefined
+            ? `「${file.path}」无法抽取文本层，无法核对正文；若为扫描件需 OCR`
+            : `「${file.path}」可提取文本仅 ${file.textChars} 字符（低于 ${minimum}），可能为扫描件或正文损坏`,
+          evidence: [file.path],
+          basis: basisOf(rule),
+        })
       }
       continue
     }

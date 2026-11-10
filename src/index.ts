@@ -55,6 +55,7 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         dir: { type: 'string', description: '资料归档目录的绝对路径。' },
         rulePackFile: { type: 'string', description: '覆盖配置中的规则库路径。' },
         maxDepth: { type: 'number', description: '覆盖规则库里的递归深度上限。' },
+        content: { type: 'boolean', description: '读取 PDF 文本层并执行 CD-043；默认 false，只按文件名扫描。' },
       },
       output: {
         schema: {
@@ -94,6 +95,7 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         const packPath = resolvePackageFile(args.rulePackFile?.trim() || config.rulePackFile)
         const pack = loadPack(await readFile(packPath, 'utf8'))
         if (args.maxDepth !== undefined) pack.scan.maxDepth = args.maxDepth
+        if (args.content === true) pack.scan.content = true
 
         const { files, dirs, warnings: scanWarnings } = await scan(root, pack.scan)
         exec.signal.throwIfAborted()
