@@ -28,7 +28,7 @@ export interface Requirement {
   severity: 'error' | 'warn' | 'info'
   patterns: string[]
   note: string
-  content?: { minTextChars: number }
+  content?: { minTextChars: number; datePattern?: string }
   basis: {
     document: string
     number: string
@@ -70,6 +70,8 @@ export interface ScannedFile {
   textChars?: number
   /** Extracted text (trimmed to a preview), when content scanning is enabled. */
   textPreview?: string
+  /** Full extracted text sample used by content rules, capped during scan. */
+  textSample?: string
   /** Why text extraction failed, when content scanning is enabled. */
   textError?: string
 }
@@ -137,7 +139,12 @@ export function loadPack(yaml: string): ConstructionPack {
     const patterns = Array.isArray(entry.patterns) ? entry.patterns.map(String) : []
     const contentRaw = entry.content
     const content = contentRaw !== null && typeof contentRaw === 'object' && !Array.isArray(contentRaw) && typeof (contentRaw as Record<string, unknown>).minTextChars === 'number'
-      ? { minTextChars: (contentRaw as Record<string, unknown>).minTextChars as number }
+      ? {
+          minTextChars: (contentRaw as Record<string, unknown>).minTextChars as number,
+          ...(typeof (contentRaw as Record<string, unknown>).datePattern === 'string'
+            ? { datePattern: (contentRaw as Record<string, unknown>).datePattern as string }
+            : {}),
+        }
       : undefined
     for (const pattern of patterns) {
       try {
@@ -210,6 +217,7 @@ export async function scan(root: string, options: ScanOptions): Promise<{ files:
             const text = extractPdfText(buffer)
             file.textChars = text.length
             file.textPreview = text.slice(0, 200)
+            file.textSample = text.slice(0, 4000)
           } catch (error) {
             file.textError = error instanceof Error ? error.message : String(error)
             warnings.push(`无法抽取 PDF 文本：${relative}`)
@@ -345,6 +353,35 @@ export function check(pack: ConstructionPack, root: string, files: ScannedFile[]
           message: file.textChars === undefined
             ? `「${file.path}」无法抽取文本层，无法核对正文；若为扫描件需 OCR`
             : `「${file.path}」可提取文本仅 ${file.textChars} 字符（低于 ${minimum}），可能为扫描件或正文损坏`,
+          evidence: [file.path],
+          basis: basisOf(rule),
+        })
+      }
+      continue
+    }
+
+    if (rule.id === 'CD-044') {
+      const pattern = rule.content?.datePattern
+      if (pattern === undefined || pattern === '') {
+        continue
+      }
+      let regex: RegExp
+      try {
+        regex = new RegExp(pattern, 'iu')
+      } catch {
+        warnings.push(`CD-044 的 datePattern 不是合法正则，已跳过`)
+        continue
+      }
+      for (const file of files) {
+        if (!/\.pdf$/iu.test(file.name) || file.contentScanned !== true) continue
+        if (file.textChars === undefined) continue
+        if (regex.test(file.textSample ?? '')) continue
+        findings.push({
+          ruleId: rule.id,
+          severity: rule.severity,
+          category: rule.category,
+          title: rule.title,
+          message: `「${file.path}」的正文样本未匹配到版本/日期模式（${pattern}）`,
           evidence: [file.path],
           basis: basisOf(rule),
         })

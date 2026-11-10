@@ -253,3 +253,20 @@ rules:
       kind: institutional-configuration
       source: https://www.gov.cn/
     note: 仅在 content=true 时执行；统计可提取的文本字符数。扫描件没有文本层是正常归档形态，但无法用本插件核对正文，需 OCR 或人工复核。
+
+  - id: CD-044
+    title: PDF 正文应含版本或日期标记
+    category: 版本
+    severity: info
+    patterns: []
+    content:
+      minTextChars: 200
+      datePattern: "(January|February|March|April|May|June|July|August|September|October|November|December) +[0-9]{4}|[0-9]{4}-[0-9]{2}-[0-9]{2}"
+    basis:
+      document: 本机构资料管理办法
+      number: 本机构配置
+      clause: 本机构配置
+      excerpt: 归档 PDF 的正文应保留版本或日期标记，便于识别现行版本；具体格式由本机构资料管理办法规定。
+      kind: institutional-configuration
+      source: https://www.gov.cn/
+    note: 仅在 content=true 时执行；在正文前 4000 字符中查找英文月份+年份或 ISO 日期。找不到只提示人工核对，不判定文件无效。
