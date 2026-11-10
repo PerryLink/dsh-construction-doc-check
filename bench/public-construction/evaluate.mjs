@@ -533,7 +533,7 @@ function renderResults(summary) {
     )
   }
   lines.push('')
-  lines.push(`Case-level scoring: ${summary.method.scoring}. Support per check: ` +
+  lines.push(`Scoring: ${summary.method.scoring}. Support per check: ` +
     Object.entries(summary.checks)
       .map(([name, check]) => `${name} ${check.support.positive} positive / ${check.support.negative} negative`)
       .join('; ') + '.')
