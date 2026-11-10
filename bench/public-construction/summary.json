@@ -1,16 +1,22 @@
 {
   "benchmark": "public-construction",
-  "generatedAt": "2026-11-10T11:55:25.680Z",
+  "generatedAt": "2026-11-10T13:02:25.728Z",
   "status": "pass",
   "plugin": {
     "name": "dsh-construction-doc-check",
     "version": "0.1.4",
     "tool": "construction_doc_check",
     "entry": "../../lib/index.mjs",
-    "entrySha256": "fe75b34c94c4879573cf952aa6a06b767a9f5e0f7d3fb7becdbce763034ddbaa",
+    "entrySha256": "64f54c2b0ab8a8d9585a5cac4eba3c07671d04c6b9d3336464d6a5db4d93435a",
     "shippedPack": "../../rules/construction-doc-check.yaml",
-    "shippedPackSha256": "7e20ed9f8cadf54019c468bc36fcaa318fad8884ee780aa9b9c463ac6e59ecdd",
+    "shippedPackSha256": "2d9b60c57524edecc26d3a8e7d70340729171370eec2dbb406e2bac142e3ac07",
     "shippedPackVersion": "2026.1"
+  },
+  "contentScan": {
+    "scanned": 6,
+    "withText": 6,
+    "minChars": 32910,
+    "maxChars": 129250
   },
   "corpus": {
     "id": "ufgs-division-01-2026-11",
@@ -311,7 +317,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 61
+      "durationMs": 76
     },
     {
       "id": "clean-nested",
@@ -372,7 +378,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 67
+      "durationMs": 102
     },
     {
       "id": "missing-one",
@@ -437,7 +443,7 @@
         },
         "presenceFilesScanned": 5
       },
-      "durationMs": 43
+      "durationMs": 72
     },
     {
       "id": "missing-two-nested",
@@ -504,7 +510,7 @@
         },
         "presenceFilesScanned": 4
       },
-      "durationMs": 53
+      "durationMs": 68
     },
     {
       "id": "zero-one",
@@ -571,7 +577,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 49
+      "durationMs": 89
     },
     {
       "id": "zero-two-nested",
@@ -641,7 +647,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 68
+      "durationMs": 91
     },
     {
       "id": "stale-paren",
@@ -706,7 +712,7 @@
         },
         "presenceFilesScanned": 7
       },
-      "durationMs": 55
+      "durationMs": 79
     },
     {
       "id": "stale-v2",
@@ -771,7 +777,7 @@
         },
         "presenceFilesScanned": 7
       },
-      "durationMs": 78
+      "durationMs": 94
     },
     {
       "id": "mixed",
@@ -846,7 +852,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 68
+      "durationMs": 86
     }
   ],
   "totals": {

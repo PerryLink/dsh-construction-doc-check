@@ -79,6 +79,16 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
               },
             },
             missingCategories: { type: 'array', items: { type: 'string' } },
+            content: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                scanned: { type: 'integer' },
+                withText: { type: 'integer' },
+                minChars: { type: 'integer' },
+                maxChars: { type: 'integer' },
+              },
+            },
             markdown: { type: 'string' },
             resultJson: { type: 'string' },
           },
@@ -107,12 +117,22 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
           .filter((item) => item.message.includes('没有找到'))
           .map((item) => `${item.ruleId} ${item.title}`)
 
+        const contentFiles = files.filter((file) => /\.pdf$/iu.test(file.name) && file.contentScanned === true)
+        const content = args.content === true
+          ? {
+              scanned: contentFiles.length,
+              withText: contentFiles.filter((file) => (file.textChars ?? 0) > 0).length,
+              minChars: contentFiles.length === 0 ? 0 : Math.min(...contentFiles.map((file) => file.textChars ?? 0)),
+              maxChars: contentFiles.length === 0 ? 0 : Math.max(...contentFiles.map((file) => file.textChars ?? 0)),
+            }
+          : undefined
         return {
           plugin: name,
           target: root,
           packVersion: pack.version,
           summary: { ...result.summary, filesScanned: files.length },
           missingCategories,
+          ...(content === undefined ? {} : { content }),
           markdown,
           resultJson: JSON.stringify(findingJson(result)),
         }

@@ -376,6 +376,12 @@ async function main() {
     checks[name] = { ...definition, ...metrics(tp, fp, fn, tn) }
   }
 
+  const contentScan = await tool.execute({ dir: join(here, '.data'), content: true }, { signal: new AbortController().signal })
+  const contentStats = contentScan.content
+  if (contentStats === undefined || contentStats.scanned !== documents.length || contentStats.withText !== documents.length) {
+    throw new Error(`content scan: expected ${documents.length} text-layer PDFs, got ${JSON.stringify(contentStats)}`)
+  }
+
   const passed = results.filter((result) => result.pass).length
   const generatedAt = new Date().toISOString()
   const summary = {
@@ -392,6 +398,7 @@ async function main() {
       shippedPackSha256: sha256(shippedPackBytes),
       shippedPackVersion: results[0]?.plugin.packVersion ?? null,
     },
+    contentScan: contentStats,
     corpus: {
       id: sources.corpus.id,
       title: sources.corpus.title,
