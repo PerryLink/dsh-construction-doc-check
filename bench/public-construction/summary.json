@@ -1,0 +1,874 @@
+{
+  "benchmark": "public-construction",
+  "generatedAt": "2026-11-10T11:51:53.742Z",
+  "status": "pass",
+  "plugin": {
+    "name": "dsh-construction-doc-check",
+    "version": "0.1.4",
+    "tool": "construction_doc_check",
+    "entry": "../../lib/index.mjs",
+    "entrySha256": "fe75b34c94c4879573cf952aa6a06b767a9f5e0f7d3fb7becdbce763034ddbaa",
+    "shippedPack": "../../rules/construction-doc-check.yaml",
+    "shippedPackSha256": "7e20ed9f8cadf54019c468bc36fcaa318fad8884ee780aa9b9c463ac6e59ecdd",
+    "shippedPackVersion": "2026.1"
+  },
+  "corpus": {
+    "id": "ufgs-division-01-2026-11",
+    "title": "Six U.S. Unified Facilities Guide Specifications (UFGS) sections, Division 01",
+    "publisher": "USACE / NAVFAC / AFCEC / NASA, distributed by the Whole Building Design Guide (WBDG)",
+    "documentKind": "guide specification sections (not completed project records or filled forms)",
+    "retrievedAt": "2026-11-10",
+    "license": {
+      "status": "public-domain-us-federal-work",
+      "summary": "UFGS are works of the U.S. federal government and are public domain in the United States under 17 U.S.C. § 105. No copyright notice was found in the PDF text or metadata we inspected. WBDG's site-level terms were not separately reviewed, so this bench does not claim any license beyond the U.S. federal-work status and does not redistribute the PDFs in git.",
+      "basis": [
+        "17 U.S.C. § 105: copyright protection is not available for works of the U.S. Government.",
+        "UFS 1-300-02, UFGS Format Standard (2025), publicly distributed by WBDG at no cost: https://www.wbdg.org/FFC/DOD/UFC/ufs_1_300_02_2025.pdf"
+      ],
+      "caveats": "Not legal advice. UFGS sections reference third-party standards that may carry their own terms; those references are not downloaded or redistributed here. The WBDG site terms page is a single-page application and was not machine-verifiable at retrieval time."
+    },
+    "documents": [
+      {
+        "id": "UFGS-01-33-00",
+        "section": "01 33 00",
+        "title": "Submittal Procedures",
+        "filename": "UFGS 01 33 00.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2033%2000.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-33-00",
+        "bytes": 102935,
+        "sha256": "47a351484156c27c3e940090c776105f52ea65c34c41d0020e39846295d116a5"
+      },
+      {
+        "id": "UFGS-01-45-00",
+        "section": "01 45 00",
+        "title": "Quality Control",
+        "filename": "UFGS 01 45 00.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2045%2000.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-45-00",
+        "bytes": 152687,
+        "sha256": "2597d7312cfb80b4863664d77acde7d087309ac27c58a0b5c6a01fd50fef6e54"
+      },
+      {
+        "id": "UFGS-01-78-00",
+        "section": "01 78 00",
+        "title": "Closeout Submittals",
+        "filename": "UFGS 01 78 00.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2078%2000.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-78-00",
+        "bytes": 88182,
+        "sha256": "12861f0768172286120ab0401e356bc4c8f467a999a8d6f20f7eaa4b774f5b51"
+      },
+      {
+        "id": "UFGS-01-32-01-00-10",
+        "section": "01 32 01.00 10",
+        "title": "Project Schedule",
+        "filename": "UFGS 01 32 01.00 10.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2032%2001.00%2010.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-32-01-00-10",
+        "bytes": 73844,
+        "sha256": "449d351ca771f43ab1167d443ce8c327432ecdad57f17aba950903e901e95948"
+      },
+      {
+        "id": "UFGS-01-35-26",
+        "section": "01 35 26",
+        "title": "Government Safety and Health Requirements",
+        "filename": "UFGS 01 35 26.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2035%2026.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-35-26",
+        "bytes": 119738,
+        "sha256": "5a521a957f3327a6a98fac05a7146a7f2949d6abc508f00c73948e26f6ec087b"
+      },
+      {
+        "id": "UFGS-01-74-19",
+        "section": "01 74 19",
+        "title": "Construction Waste Management",
+        "filename": "UFGS 01 74 19.pdf",
+        "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2074%2019.pdf",
+        "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-74-19",
+        "bytes": 46185,
+        "sha256": "5e8b5e3d95e5c808449d227c77929225e043a5aa2f35d1dc238c1267748a7685"
+      }
+    ]
+  },
+  "semanticMapping": {
+    "mappedRuleIds": [],
+    "entries": [
+      {
+        "ruleId": "CD-001",
+        "requirement": "竣工验收记录应齐全（四张表）",
+        "candidate": "UFGS 01 78 00 Closeout Submittals",
+        "mappedTo": null,
+        "verdict": "not-equivalent",
+        "reason": "A guide specification for closeout submittals is not a filled 单位工程质量竣工验收记录 (or the other three acceptance tables)."
+      },
+      {
+        "ruleId": "CD-002",
+        "requirement": "应有工程竣工报告",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a project completion report."
+      },
+      {
+        "ruleId": "CD-003",
+        "requirement": "应有工程质量保修书",
+        "candidate": "UFGS 01 78 00 Closeout Submittals",
+        "mappedTo": null,
+        "verdict": "not-equivalent",
+        "reason": "01 78 00 specifies warranty submittal requirements; it is not the executed 工程质量保修书."
+      },
+      {
+        "ruleId": "CD-010",
+        "requirement": "应有检验批质量验收记录",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a filled inspection-lot acceptance record."
+      },
+      {
+        "ruleId": "CD-011",
+        "requirement": "应有隐蔽工程验收记录",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a concealed-work acceptance record."
+      },
+      {
+        "ruleId": "CD-012",
+        "requirement": "应有分部工程质量验收记录",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a divisional completion acceptance record."
+      },
+      {
+        "ruleId": "CD-013",
+        "requirement": "应有材料进场复试报告",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a material re-test report."
+      },
+      {
+        "ruleId": "CD-014",
+        "requirement": "应有监理日志",
+        "candidate": "UFGS 01 45 00 Quality Control",
+        "mappedTo": null,
+        "verdict": "not-equivalent",
+        "reason": "01 45 00 is a quality-control specification, not a daily supervision log."
+      },
+      {
+        "ruleId": "CD-015",
+        "requirement": "应有施工日志",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a daily construction log."
+      },
+      {
+        "ruleId": "CD-020",
+        "requirement": "危大工程应有专项施工方案",
+        "candidate": "UFGS 01 35 26 Government Safety and Health Requirements",
+        "mappedTo": null,
+        "verdict": "not-equivalent",
+        "reason": "01 35 26 is a guide specification for safety and health requirements, not a project-specific approved 危大工程专项施工方案."
+      },
+      {
+        "ruleId": "CD-021",
+        "requirement": "危大工程应有验收记录",
+        "candidate": null,
+        "mappedTo": null,
+        "verdict": "no-public-match",
+        "reason": "No public UFGS section is a filled acceptance record for a hazardous sub-project."
+      },
+      {
+        "ruleId": "CD-030",
+        "requirement": "应有应急预案",
+        "candidate": "UFGS 01 35 26 Government Safety and Health Requirements",
+        "mappedTo": null,
+        "verdict": "not-equivalent",
+        "reason": "01 35 26 references emergency planning; the section itself is not the project emergency response plan."
+      }
+    ],
+    "note": "No Chinese document-type rule is mapped. The generic rules CD-040/041 are scored; CD-042 is observed but not scored."
+  },
+  "method": {
+    "cases": 9,
+    "labelsFrom": "case construction, before the plugin runs",
+    "presenceRulePack": "generated in the temp run directory from sources.json; passed to the real tool via rulePackFile",
+    "zeroByteRule": "CD-041 from the shipped pack",
+    "staleVersionRule": "CD-040 from the shipped pack",
+    "headerRule": "CD-042 observed, not scored",
+    "scoring": "case-level exact-set match; a check is correct only when the full expected and observed sets are equal"
+  },
+  "checks": {
+    "presence": {
+      "description": "Every required public document is present under its exact upstream filename (bench-generated pack, run by the real plugin).",
+      "rulePack": "bench-generated exact-filename pack (rule ids PB-001…PB-006)",
+      "expectedKey": "presenceMissingDocIds",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 6,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "support": {
+        "positive": 3,
+        "negative": 6
+      }
+    },
+    "zeroByte": {
+      "description": "Every injected zero-byte file is reported by CD-041.",
+      "rulePack": "shipped rules/construction-doc-check.yaml",
+      "expectedKey": "zeroBytePaths",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 6,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "support": {
+        "positive": 3,
+        "negative": 6
+      }
+    },
+    "staleVersion": {
+      "description": "Every injected revision-marked duplicate is reported by CD-040.",
+      "rulePack": "shipped rules/construction-doc-check.yaml",
+      "expectedKey": "staleVersionBases",
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 6,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "support": {
+        "positive": 3,
+        "negative": 6
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "clean-flat",
+      "layout": "flat",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": false,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 6,
+        "dirsScanned": 1,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 2,
+          "dirsScanned": 1,
+          "filesScanned": 6
+        },
+        "presenceFilesScanned": 6
+      },
+      "durationMs": 54
+    },
+    {
+      "id": "clean-nested",
+      "layout": "nested",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": false,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 6,
+        "dirsScanned": 5,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 2,
+          "dirsScanned": 5,
+          "filesScanned": 6
+        },
+        "presenceFilesScanned": 6
+      },
+      "durationMs": 72
+    },
+    {
+      "id": "missing-one",
+      "layout": "flat",
+      "label": {
+        "presenceMissingDocIds": [
+          "UFGS-01-45-00"
+        ],
+        "zeroBytePaths": [],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [
+          "UFGS-01-45-00"
+        ],
+        "zeroBytePaths": [],
+        "staleVersionBases": [],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": true,
+        "zeroByte": false,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 5,
+        "dirsScanned": 1,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 2,
+          "dirsScanned": 1,
+          "filesScanned": 5
+        },
+        "presenceFilesScanned": 5
+      },
+      "durationMs": 45
+    },
+    {
+      "id": "missing-two-nested",
+      "layout": "nested",
+      "label": {
+        "presenceMissingDocIds": [
+          "UFGS-01-33-00",
+          "UFGS-01-74-19"
+        ],
+        "zeroBytePaths": [],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [
+          "UFGS-01-33-00",
+          "UFGS-01-74-19"
+        ],
+        "zeroBytePaths": [],
+        "staleVersionBases": [],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": true,
+        "zeroByte": false,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 4,
+        "dirsScanned": 5,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 2,
+          "dirsScanned": 5,
+          "filesScanned": 4
+        },
+        "presenceFilesScanned": 4
+      },
+      "durationMs": 57
+    },
+    {
+      "id": "zero-one",
+      "layout": "flat",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [
+          "UFGS 01 78 00.pdf"
+        ],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [
+          "UFGS 01 78 00.pdf"
+        ],
+        "staleVersionBases": [],
+        "headerMismatchPaths": [
+          "UFGS 01 78 00.pdf"
+        ]
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": true,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 1,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 6,
+        "dirsScanned": 1,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 3,
+          "infos": 3,
+          "dirsScanned": 1,
+          "filesScanned": 6
+        },
+        "presenceFilesScanned": 6
+      },
+      "durationMs": 51
+    },
+    {
+      "id": "zero-two-nested",
+      "layout": "nested",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [
+          "division-01-safety/UFGS 01 35 26.pdf",
+          "division-01-schedule/UFGS 01 32 01.00 10.pdf"
+        ],
+        "staleVersionBases": []
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [
+          "division-01-safety/UFGS 01 35 26.pdf",
+          "division-01-schedule/UFGS 01 32 01.00 10.pdf"
+        ],
+        "staleVersionBases": [],
+        "headerMismatchPaths": [
+          "division-01-safety/UFGS 01 35 26.pdf",
+          "division-01-schedule/UFGS 01 32 01.00 10.pdf"
+        ]
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": true,
+        "staleVersion": false
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 2,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 6,
+        "dirsScanned": 5,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 4,
+          "infos": 4,
+          "dirsScanned": 5,
+          "filesScanned": 6
+        },
+        "presenceFilesScanned": 6
+      },
+      "durationMs": 70
+    },
+    {
+      "id": "stale-paren",
+      "layout": "flat",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [
+          "UFGS 01 33 00"
+        ]
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [
+          "UFGS 01 33 00"
+        ],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": false,
+        "staleVersion": true
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 7,
+        "dirsScanned": 1,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 3,
+          "dirsScanned": 1,
+          "filesScanned": 7
+        },
+        "presenceFilesScanned": 7
+      },
+      "durationMs": 56
+    },
+    {
+      "id": "stale-v2",
+      "layout": "nested",
+      "label": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [
+          "UFGS 01 78 00"
+        ]
+      },
+      "observed": {
+        "presenceMissingDocIds": [],
+        "zeroBytePaths": [],
+        "staleVersionBases": [
+          "UFGS 01 78 00"
+        ],
+        "headerMismatchPaths": []
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": false,
+        "zeroByte": false,
+        "staleVersion": true
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 0,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 7,
+        "dirsScanned": 5,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 2,
+          "infos": 3,
+          "dirsScanned": 5,
+          "filesScanned": 7
+        },
+        "presenceFilesScanned": 7
+      },
+      "durationMs": 82
+    },
+    {
+      "id": "mixed",
+      "layout": "nested",
+      "label": {
+        "presenceMissingDocIds": [
+          "UFGS-01-45-00"
+        ],
+        "zeroBytePaths": [
+          "division-01-environment/UFGS 01 74 19.pdf"
+        ],
+        "staleVersionBases": [
+          "UFGS 01 35 26"
+        ]
+      },
+      "observed": {
+        "presenceMissingDocIds": [
+          "UFGS-01-45-00"
+        ],
+        "zeroBytePaths": [
+          "division-01-environment/UFGS 01 74 19.pdf"
+        ],
+        "staleVersionBases": [
+          "UFGS 01 35 26"
+        ],
+        "headerMismatchPaths": [
+          "division-01-environment/UFGS 01 74 19.pdf"
+        ]
+      },
+      "exact": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "flagged": {
+        "presence": true,
+        "zeroByte": true,
+        "staleVersion": true
+      },
+      "pass": true,
+      "unscored": {
+        "chineseMissingRuleIds": [
+          "CD-001",
+          "CD-002",
+          "CD-003",
+          "CD-010",
+          "CD-011",
+          "CD-012",
+          "CD-013",
+          "CD-014",
+          "CD-015",
+          "CD-020",
+          "CD-021",
+          "CD-030"
+        ],
+        "chineseMissingCount": 12,
+        "headerMismatchCount": 1,
+        "note": "Chinese document-type rules and CD-042 are not scored in this public-corpus bench."
+      },
+      "plugin": {
+        "packVersion": "2026.1",
+        "filesScanned": 6,
+        "dirsScanned": 5,
+        "summary": {
+          "present": 0,
+          "missing": 12,
+          "errors": 8,
+          "warnings": 3,
+          "infos": 4,
+          "dirsScanned": 5,
+          "filesScanned": 6
+        },
+        "presenceFilesScanned": 6
+      },
+      "durationMs": 72
+    }
+  ],
+  "totals": {
+    "cases": 9,
+    "passed": 9,
+    "failed": 0,
+    "checkInstances": 27
+  },
+  "environment": {
+    "node": "v24.22.1",
+    "platform": "linux",
+    "arch": "x64",
+    "tempDirKept": null
+  },
+  "limitations": [
+    "The corpus is six UFGS specification sections, not a project archive. It contains no Chinese completion/acceptance records, logs, plans, or test reports.",
+    "The Chinese rule pack therefore reports its 12 document types as missing on every case. Those findings are recorded as unscored, not counted as false positives.",
+    "Presence scoring uses a bench-generated exact-filename pack, not the Chinese patterns. It tests scan/path matching, not Chinese form completeness.",
+    "The adapter performs no semantic renaming: no UFGS section is treated as a 竣工验收记录, 监理日志, 检验批, 专项施工方案, or 应急预案.",
+    "CD-042 (container header) is observed but not scored. It fires on zero-byte .pdf files as a side effect of CD-041 cases.",
+    "One snapshot is pinned by URL + size + SHA-256. Upstream WBDG files can be replaced; fetch.mjs fails rather than silently measuring a changed corpus.",
+    "Case-level P/R has a small denominator (9 cases). It is a regression harness for this plugin, not an estimate of field accuracy.",
+    "No document content is parsed. A document merely being present, non-empty, and uniquely named is not evidence that its content is valid."
+  ]
+}

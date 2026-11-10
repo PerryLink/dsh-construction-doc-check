@@ -1,0 +1,4 @@
+# Downloaded public PDFs; never commit them.
+.data/
+# Temporary project directories and generated rule packs from evaluate.mjs.
+.tmp/

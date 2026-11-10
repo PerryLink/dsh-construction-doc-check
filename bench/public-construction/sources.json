@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "corpus": {
+    "id": "ufgs-division-01-2026-11",
+    "title": "Six U.S. Unified Facilities Guide Specifications (UFGS) sections, Division 01",
+    "publisher": "USACE / NAVFAC / AFCEC / NASA, distributed by the Whole Building Design Guide (WBDG)",
+    "documentKind": "guide specification sections (not completed project records or filled forms)",
+    "retrievedAt": "2026-11-10",
+    "retrievedBy": "bench/public-construction/fetch.mjs",
+    "license": {
+      "status": "public-domain-us-federal-work",
+      "summary": "UFGS are works of the U.S. federal government and are public domain in the United States under 17 U.S.C. § 105. No copyright notice was found in the PDF text or metadata we inspected. WBDG's site-level terms were not separately reviewed, so this bench does not claim any license beyond the U.S. federal-work status and does not redistribute the PDFs in git.",
+      "basis": [
+        "17 U.S.C. § 105: copyright protection is not available for works of the U.S. Government.",
+        "UFS 1-300-02, UFGS Format Standard (2025), publicly distributed by WBDG at no cost: https://www.wbdg.org/FFC/DOD/UFC/ufs_1_300_02_2025.pdf"
+      ],
+      "caveats": "Not legal advice. UFGS sections reference third-party standards that may carry their own terms; those references are not downloaded or redistributed here. The WBDG site terms page is a single-page application and was not machine-verifiable at retrieval time."
+    },
+    "notes": [
+      "The six documents are specification sections, not a project archive. They do not contain the Chinese completion/acceptance forms required by rules/construction-doc-check.yaml.",
+      "No public corpus was found that is both clearly reusable and semantically equivalent to the Chinese rule pack's required document types. The bench therefore does not score the Chinese missing-form rules.",
+      "The PDFs are downloaded into .data/ (gitignored) and copied byte-for-byte by adapter.mjs. Their upstream filenames are preserved."
+    ]
+  },
+  "documents": [
+    {
+      "id": "UFGS-01-33-00",
+      "section": "01 33 00",
+      "title": "Submittal Procedures",
+      "filename": "UFGS 01 33 00.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2033%2000.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-33-00",
+      "bytes": 102935,
+      "sha256": "47a351484156c27c3e940090c776105f52ea65c34c41d0020e39846295d116a5",
+      "sectionGroup": "division-01-general"
+    },
+    {
+      "id": "UFGS-01-45-00",
+      "section": "01 45 00",
+      "title": "Quality Control",
+      "filename": "UFGS 01 45 00.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2045%2000.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-45-00",
+      "bytes": 152687,
+      "sha256": "2597d7312cfb80b4863664d77acde7d087309ac27c58a0b5c6a01fd50fef6e54",
+      "sectionGroup": "division-01-general"
+    },
+    {
+      "id": "UFGS-01-78-00",
+      "section": "01 78 00",
+      "title": "Closeout Submittals",
+      "filename": "UFGS 01 78 00.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2078%2000.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-78-00",
+      "bytes": 88182,
+      "sha256": "12861f0768172286120ab0401e356bc4c8f467a999a8d6f20f7eaa4b774f5b51",
+      "sectionGroup": "division-01-general"
+    },
+    {
+      "id": "UFGS-01-32-01-00-10",
+      "section": "01 32 01.00 10",
+      "title": "Project Schedule",
+      "filename": "UFGS 01 32 01.00 10.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2032%2001.00%2010.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-32-01-00-10",
+      "bytes": 73844,
+      "sha256": "449d351ca771f43ab1167d443ce8c327432ecdad57f17aba950903e901e95948",
+      "sectionGroup": "division-01-schedule"
+    },
+    {
+      "id": "UFGS-01-35-26",
+      "section": "01 35 26",
+      "title": "Government Safety and Health Requirements",
+      "filename": "UFGS 01 35 26.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2035%2026.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-35-26",
+      "bytes": 119738,
+      "sha256": "5a521a957f3327a6a98fac05a7146a7f2949d6abc508f00c73948e26f6ec087b",
+      "sectionGroup": "division-01-safety"
+    },
+    {
+      "id": "UFGS-01-74-19",
+      "section": "01 74 19",
+      "title": "Construction Waste Management",
+      "filename": "UFGS 01 74 19.pdf",
+      "url": "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2001%2074%2019.pdf",
+      "sourcePage": "https://www.wbdg.org/ffc/dod/unified-facilities-guide-specifications-ufgs/ufgs-01-74-19",
+      "bytes": 46185,
+      "sha256": "5e8b5e3d95e5c808449d227c77929225e043a5aa2f35d1dc238c1267748a7685",
+      "sectionGroup": "division-01-environment"
+    }
+  ]
+}
