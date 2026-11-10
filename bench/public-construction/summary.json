@@ -1,6 +1,6 @@
 {
   "benchmark": "public-construction",
-  "generatedAt": "2026-11-10T11:52:38.482Z",
+  "generatedAt": "2026-11-10T11:55:25.680Z",
   "status": "pass",
   "plugin": {
     "name": "dsh-construction-doc-check",
@@ -311,7 +311,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 55
+      "durationMs": 61
     },
     {
       "id": "clean-nested",
@@ -372,7 +372,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 79
+      "durationMs": 67
     },
     {
       "id": "missing-one",
@@ -437,7 +437,7 @@
         },
         "presenceFilesScanned": 5
       },
-      "durationMs": 50
+      "durationMs": 43
     },
     {
       "id": "missing-two-nested",
@@ -504,7 +504,7 @@
         },
         "presenceFilesScanned": 4
       },
-      "durationMs": 64
+      "durationMs": 53
     },
     {
       "id": "zero-one",
@@ -571,7 +571,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 51
+      "durationMs": 49
     },
     {
       "id": "zero-two-nested",
@@ -641,7 +641,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 72
+      "durationMs": 68
     },
     {
       "id": "stale-paren",
@@ -706,7 +706,7 @@
         },
         "presenceFilesScanned": 7
       },
-      "durationMs": 58
+      "durationMs": 55
     },
     {
       "id": "stale-v2",
@@ -771,7 +771,7 @@
         },
         "presenceFilesScanned": 7
       },
-      "durationMs": 85
+      "durationMs": 78
     },
     {
       "id": "mixed",
@@ -846,7 +846,7 @@
         },
         "presenceFilesScanned": 6
       },
-      "durationMs": 85
+      "durationMs": 68
     }
   ],
   "totals": {
