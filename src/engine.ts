@@ -28,7 +28,7 @@ export interface Requirement {
   severity: 'error' | 'warn' | 'info'
   patterns: string[]
   note: string
-  content?: { minTextChars: number; datePattern?: string }
+  content?: { minTextChars: number; datePattern?: string; sectionPattern?: string }
   basis: {
     document: string
     number: string
@@ -143,6 +143,9 @@ export function loadPack(yaml: string): ConstructionPack {
           minTextChars: (contentRaw as Record<string, unknown>).minTextChars as number,
           ...(typeof (contentRaw as Record<string, unknown>).datePattern === 'string'
             ? { datePattern: (contentRaw as Record<string, unknown>).datePattern as string }
+            : {}),
+          ...(typeof (contentRaw as Record<string, unknown>).sectionPattern === 'string'
+            ? { sectionPattern: (contentRaw as Record<string, unknown>).sectionPattern as string }
             : {}),
         }
       : undefined
@@ -382,6 +385,32 @@ export function check(pack: ConstructionPack, root: string, files: ScannedFile[]
           category: rule.category,
           title: rule.title,
           message: `「${file.path}」的正文样本未匹配到版本/日期模式（${pattern}）`,
+          evidence: [file.path],
+          basis: basisOf(rule),
+        })
+      }
+      continue
+    }
+
+    if (rule.id === 'CD-045') {
+      if (rule.content?.sectionPattern === undefined) continue
+      const sectionOf = (value: string): string | undefined => {
+        const match = value.match(/UFGS[-\s]*([0-9]{2})[ ]([0-9]{2})[ ]([0-9]{2})(?:\.([0-9]{2}))?(?:[ ]([0-9]{2}))?/u)
+        if (match === null) return undefined
+        return [match[1], match[2], match[3], match[4] ?? '', match[5] ?? ''].filter(Boolean).join(' ')
+      }
+      for (const file of files) {
+        if (!/\.pdf$/iu.test(file.name) || file.contentScanned !== true || file.textChars === undefined) continue
+        const textSection = sectionOf(file.textSample ?? '')
+        const nameSection = sectionOf(file.name)
+        if (textSection === undefined || nameSection === undefined) continue
+        if (textSection === nameSection) continue
+        findings.push({
+          ruleId: rule.id,
+          severity: rule.severity,
+          category: rule.category,
+          title: rule.title,
+          message: `「${file.path}」文件名中的 UFGS 编号 ${nameSection} 与正文开头 ${textSection} 不一致`,
           evidence: [file.path],
           basis: basisOf(rule),
         })

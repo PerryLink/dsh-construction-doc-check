@@ -59,3 +59,23 @@ describe('CD-044 version/date rule', () => {
     }
   })
 })
+
+describe('CD-045 section consistency', () => {
+  it('reports a filename section that differs from the PDF header', async () => {
+    const { mkdtemp, writeFile, rm } = await import('node:fs/promises')
+    const { tmpdir } = await import('node:os')
+    const { join } = await import('node:path')
+    const { readFile } = await import('node:fs/promises')
+    const { scan, check, loadPack } = await import('../src/engine.ts')
+    const pack = loadPack(await readFile(join(import.meta.dirname, '../rules/construction-doc-check.yaml'), 'utf8'))
+    const dir = await mkdtemp(join(tmpdir(), 'construction-section-'))
+    try {
+      await writeFile(join(dir, 'UFGS 02 00 00.pdf'), minimalPdf('UFGS-01 33 00 (August 2026) section'), 'latin1')
+      const scanned = await scan(dir, { ...pack.scan, content: true })
+      const report = check(pack, dir, scanned.files, scanned.dirs)
+      expect(report.findings.some((finding) => finding.ruleId === 'CD-045')).toBe(true)
+    } finally {
+      await rm(dir, { recursive: true, force: true })
+    }
+  })
+})
