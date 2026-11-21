@@ -57,6 +57,11 @@ Responde a cuatro preguntas:
   <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="Estructura de dsh-construction-doc-check: un árbol de archivo documental de obra (7 directorios, 12 archivos) cuyas carpetas de categoría llevan los identificadores de regla que coincidieron con una ruta relativa (CD-001..CD-030, doce reglas); a la derecha, las dos reglas de conjunto que solo pueden leer todo files[] — CD-040 versiones residuales y CD-041 archivos de cero bytes; el recibo de una ejecución y los límites de escaneo (maxDepth 6, skipDirs, emptyFileBytes 0) cierran la figura">
 </picture>
 
+![dsh-construction-doc-check: ejecución real de terminal](docs/assets/dsh-construction-doc-check-demo.gif)
+
+*Repetición animada de una ejecución real registrada en este repositorio.*
+
+
 ## Instalación en tres pasos
 
 1. **Instala** (elige un canal):

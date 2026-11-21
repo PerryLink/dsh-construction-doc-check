@@ -35,6 +35,10 @@ dsh plugin --profile <name> add dsh-construction-doc-check
 
 ## 它是什么
 
+![dsh-construction-doc-check 真实终端运行](docs/assets/dsh-construction-doc-check-demo.gif)
+
+*本仓库一次真实运行的动图回放。*
+
 `dsh-construction-doc-check` 扫描一个施工项目的资料归档目录，按相对路径与文件名核对规则库列出的每一类资料是否存在：缺哪一类、依据哪一条、归档里哪份文件算数。它同时报告两类集合级问题：同一份资料出现多份（可能残留旧版本），以及零字节文件（「有但用不了」）。
 
 它读的是文件名，不打开文件。这是刻意的上限：一个真实归档有上千份文件，先让资料员整理成表格再核对，是给资料员加活不是减活。目录和文件名是资料员已经有的东西。

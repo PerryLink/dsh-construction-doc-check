@@ -57,6 +57,11 @@ It answers four questions:
   <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="dsh-construction-doc-check structure: one construction document archive tree (7 directories, 12 files) whose category folders carry the rule ids that matched a relative path there (CD-001..CD-030, twelve rules); on the right the two set-level rules that can only read the whole files[] — CD-040 version leftovers and CD-041 zero-byte files; the run receipt and the scan bounds (maxDepth 6, skipDirs, emptyFileBytes 0) close the figure">
 </picture>
 
+![dsh-construction-doc-check: real terminal run](docs/assets/dsh-construction-doc-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
+
 ## Three-step setup
 
 1. **Install** (pick one channel):

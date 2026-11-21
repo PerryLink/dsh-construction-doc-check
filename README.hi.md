@@ -57,6 +57,11 @@ dsh plugin --profile <name> add dsh-construction-doc-check
   <img src="docs/assets/dsh-construction-doc-check-flow-v5-light.svg" width="100%" alt="dsh-construction-doc-check की संरचना: निर्माण दस्तावेज़ संग्रह का एक वृक्ष (7 निर्देशिकाएँ, 12 फ़ाइलें) जिनकी श्रेणी फ़ोल्डरों पर उन नियमों की आईडी हैं जो सापेक्ष पथ से मेल खाए (CD-001..CD-030, बारह नियम); दाईं ओर वे दो समुच्चय-स्तरीय नियम जो केवल पूरा files[] पढ़ते हैं — CD-040 पुराने संस्करण और CD-041 शून्य-बाइट फ़ाइलें; एक रन की रसीद और स्कैन सीमाएँ (maxDepth 6, skipDirs, emptyFileBytes 0) चित्र को पूरा करती हैं">
 </picture>
 
+![dsh-construction-doc-check का असली टर्मिनल रन](docs/assets/dsh-construction-doc-check-demo.gif)
+
+*इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
+
+
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल करें** (कोई एक चैनल चुनें):
