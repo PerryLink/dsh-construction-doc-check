@@ -7,6 +7,8 @@
 
 # dsh-construction-doc-check
 
+Current version `0.1.6`.
+
 **Sweep a construction document archive and get the list of which required document is missing and which clause requires it — the verdict stays with the document controller and the supervisor.**
 
 A folder-level checker plugin for DeepSeek Harness: it verifies 12 required document kinds against the relative path and file name, adds two set-level checks (revision leftovers, zero-byte files), and lists only the differences it can point to inside the archive — it never opens a document, judges compliance, or assigns liability.

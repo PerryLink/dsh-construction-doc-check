@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Construction document check",
-    "description": "扫描施工项目资料目录，报告缺哪些规定资料、哪些像是过期版本、哪些文件是空的。"
+    "description": "Sweep a construction document archive and get the list of which required document is missing and which clause requires it — the verdict stays with the document controller and the supervisor."
   }
 }
