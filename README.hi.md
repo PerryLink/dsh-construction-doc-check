@@ -11,6 +11,8 @@
 
 DeepSeek Harness के लिए एक फ़ोल्डर-स्तरीय जाँच प्लगइन: सापेक्ष पथ और फ़ाइल नाम से 12 अनिवार्य दस्तावेज़ प्रकार जाँचता है, दो समुच्चय-स्तरीय जाँचें (पुराने संस्करण, शून्य-बाइट फ़ाइलें) जोड़ता है, और केवल वही अंतर सूचीबद्ध करता है जिन्हें संग्रह के भीतर इंगित किया जा सके — कभी कोई दस्तावेज़ नहीं खोलता, अनुपालन का निर्णय नहीं देता, उत्तरदायित्व निर्धारित नहीं करता।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -60,7 +62,6 @@ dsh plugin --profile <name> add dsh-construction-doc-check
 ![dsh-construction-doc-check का असली टर्मिनल रन](docs/assets/dsh-construction-doc-check-demo.gif)
 
 *इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
-
 
 ## तीन चरणों में शुरुआत
 
